@@ -1,5 +1,7 @@
 package org.example.manager;
 
+import org.example.gui.Gui;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -38,6 +40,8 @@ public class GameManager implements ActionListener {
                         team2.clear();
                         round = 1;
                         System.out.println("Gewonnen: Blau");
+                        Gui.text.setText("Team Blau hat gewonnen");
+                        Gui.text.setForeground(Color.BLUE);
                     }
                 } else
                     System.out.println("Fehler: Dieses Feld wurde bereits vom Gegner ausgewählt, bitte benutze ein anderes");
@@ -64,6 +68,8 @@ public class GameManager implements ActionListener {
                         team2.clear();
                         round = 1;
                         System.out.println("Gewonnen: Rot");
+                        Gui.text.setText("Team Rot hat gewonnen");
+                        Gui.text.setForeground(Color.RED);
                     }
                 } else
                     System.out.println("Fehler: Dieses Feld wurde bereits vom Gegner ausgewählt, bitte benutze ein anderes");
@@ -73,6 +79,25 @@ public class GameManager implements ActionListener {
 
     }
     public boolean checkWin(HashMap team) {
+        if(team.size() >= 5) {
+            for(int i = 1; i <= 9; i++) {
+                if(team1.containsKey(i)) {
+                    team1.get(i).setBackground(Color.white);
+                }
+            }
+            for(int i = 1; i <= 9; i++) {
+                if(team2.containsKey(i)) {
+                    team2.get(i).setBackground(Color.white);
+                }
+            }
+            team1.clear();
+            team2.clear();
+            round = 1;
+            System.out.println("Gewonnen: Unentschieden");
+            Gui.text.setText("Kein Team hat gewonnen");
+            Gui.text.setBounds(100, 330, 200, 50);
+            Gui.text.setForeground(Color.GRAY);
+        }
         if (team.containsKey(1)) {
             if (team.containsKey(5)) {
                 if (team.containsKey(9)) {

@@ -16,9 +16,11 @@ public class Gui {
     public static JButton button7;
     public static JButton button8;
     public static JButton button9;
+
+    public static JLabel text;
     public Gui() {
         frame = new JFrame("TicTacToe");
-        frame.setBounds(0,0 , 358, 520);
+        frame.setBounds(0,0 , 358, 415);
         frame.getContentPane().setLayout(null);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -32,6 +34,10 @@ public class Gui {
         initalButton(button7, 10, 230, 7);
         initalButton(button8, 120, 230, 8);
         initalButton(button9, 230, 230, 9);
+
+        text = new JLabel();
+        text.setBounds(104, 330, 200, 50);
+        frame.add(text);
 
         frame.setVisible(true);
     }
