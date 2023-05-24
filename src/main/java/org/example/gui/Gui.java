@@ -3,6 +3,7 @@ package org.example.gui;
 import org.example.manager.GameManager;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Gui {
     JFrame frame;
@@ -38,6 +39,7 @@ public class Gui {
     private void initalButton(JButton button, int x, int y, int id) {
         button = new JButton(String.valueOf(id));
         button.setBounds(x, y, 100, 100);
+        button.setBackground(Color.WHITE);
         button.addActionListener(new GameManager());
         frame.add(button);
     }
